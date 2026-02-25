@@ -5,3 +5,7 @@
 */
 
 -- Enter your SQL query here
+SELECT GREATEST(
+    (SELECT MAX(duration) FROM indego.indego_trips_2021_q3),
+    (SELECT MAX(duration) FROM indego.indego_trips_2022_q3)
+) AS max_duration;
