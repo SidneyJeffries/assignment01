@@ -16,7 +16,7 @@ FROM (
         3 AS trip_quarter,
         start_time,
         end_time
-    FROM indego.indego_trips_2021_q3
+    FROM indego.indego.trips_2021_q3
 
     UNION ALL
 
@@ -25,7 +25,7 @@ FROM (
         3 AS trip_quarter,
         start_time,
         end_time
-    FROM indego.indego_trips_2022_q3
+    FROM indego.indego.trips_2022_q3
 ) AS trips
 WHERE start_time::date <> end_time::date
 GROUP BY

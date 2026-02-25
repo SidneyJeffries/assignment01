@@ -11,7 +11,7 @@ SELECT
     2021 AS trip_year,
     3 AS trip_quarter,
     COUNT(*) AS num_trips
-FROM indego.indego_trips_2021_q3
+FROM indego.indego.trips_2021_q3
 WHERE duration < 10
 
 UNION ALL
@@ -20,5 +20,5 @@ SELECT
     2022 AS trip_year,
     3 AS trip_quarter,
     COUNT(*) AS num_trips
-FROM indego.indego_trips_2022_q3
+FROM indego.indego.trips_2022_q3
 WHERE duration < 10;

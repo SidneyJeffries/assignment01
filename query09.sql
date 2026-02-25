@@ -12,12 +12,12 @@ SELECT
     COUNT(*) AS num_trips
 FROM (
     SELECT passholder_type
-    FROM indego.indego_trips_2021_q3
+    FROM indego.indego.trips_2021_q3
 
     UNION ALL
 
     SELECT passholder_type
-    FROM indego.indego_trips_2022_q3
+    FROM indego.indego.trips_2022_q3
 ) AS t
 GROUP BY passholder_type
 ORDER BY num_trips DESC;
