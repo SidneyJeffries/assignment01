@@ -17,5 +17,5 @@ SELECT
             ST_SETSRID(ST_MAKEPOINT(-75.192584, 39.952415), 4326)::geography
         ) / 50.0
     ) * 50 AS distance
-FROM indego.station_status AS s
+FROM indego.station_statuses AS s
 ORDER BY distance;

@@ -19,7 +19,7 @@ SELECT
             )::geography
         ) / 50.0
     ) * 50 AS distance
-FROM indego.station_status AS s
+FROM indego.station_statuses AS s
 ORDER BY
     ST_DISTANCE(
         s.geom::geography,
