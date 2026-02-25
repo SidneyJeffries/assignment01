@@ -12,12 +12,12 @@
 -- Enter your SQL query here
 
 SELECT ROUND(((indego_trips_2022_q3 - indego_trips_2021_q3) * 100.0 / indego_trips_2021_q3), 2) AS perc_change
-FROM 
-(
-    SELECT 
-        (SELECT count(*) FROM indego_trips_2021_q3) AS indego_trips_2021_q3,
-        (SELECT count(*) FROM indego_trips_2022_q3) AS indego_trips_2022_q3
-) AS trip_counts;
+FROM
+    (
+        SELECT
+            (SELECT COUNT(*) FROM indego_trips_2021_q3) AS indego_trips_2021_q3,
+            (SELECT COUNT(*) FROM indego_trips_2022_q3) AS indego_trips_2022_q3
+    ) AS trip_counts;
 
 
 /*

@@ -10,32 +10,31 @@
 
 -- Enter your SQL query here
 SELECT
-  s.id   AS station_id,
-  s.geom AS station_geog,
-  COUNT(*) AS num_trips
+    s.id AS station_id,
+    s.geom AS station_geog,
+    COUNT(*) AS num_trips
 FROM (
-    SELECT start_time, start_station::int AS start_station
+    SELECT
+        start_time,
+        start_station::int AS start_station
     FROM indego.indego_trips_2021_q3
 
     UNION ALL
 
-    SELECT start_time, start_station::int AS start_station
+    SELECT
+        start_time,
+        start_station::int AS start_station
     FROM indego.indego_trips_2022_q3
 ) AS t
-JOIN indego.station_status AS s
-  ON s.id = t.start_station
+INNER JOIN indego.station_status AS s
+    ON t.start_station = s.id
 WHERE EXTRACT(HOUR FROM t.start_time) BETWEEN 7 AND 9
 GROUP BY
-  s.id,
-  s.geom
+    s.id,
+    s.geom
 ORDER BY
-  num_trips DESC
+    num_trips DESC
 LIMIT 5;
-
-
-
-
-
 
 
 /*

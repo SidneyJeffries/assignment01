@@ -7,13 +7,11 @@
 
 -- Enter your SQL query here
 
-SELECT
-  COUNT(*) AS num_stations
+SELECT COUNT(*) AS num_stations
 FROM indego.station_status AS s
-WHERE ST_DWithin(
-        s.geom::geography,
-        ST_SetSRID(ST_MakePoint(-75.192584, 39.952415), 4326)::geography,
-        1000
-      )
-  AND s.isvirtual = false;
-
+WHERE ST_DWITHIN(
+    s.geom::geography,
+    ST_SETSRID(ST_MAKEPOINT(-75.192584, 39.952415), 4326)::geography,
+    1000
+)
+AND s.isvirtual = false;

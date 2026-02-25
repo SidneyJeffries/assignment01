@@ -8,24 +8,24 @@
 
 -- Enter your SQL query here
 SELECT
-  s.id AS station_id,
-  s.name AS station_name,
-  ROUND(
-    ST_Distance(
-      s.geom::geography,
-      ST_SetSRID(
-        ST_MakePoint(-75.192584, 39.952415),
-        4326
-      )::geography
-    ) / 50.0
-  ) * 50 AS distance
+    s.id AS station_id,
+    s.name AS station_name,
+    ROUND(
+        ST_DISTANCE(
+            s.geom::geography,
+            ST_SETSRID(
+                ST_MAKEPOINT(-75.192584, 39.952415),
+                4326
+            )::geography
+        ) / 50.0
+    ) * 50 AS distance
 FROM indego.station_status AS s
 ORDER BY
-  ST_Distance(
-    s.geom::geography,
-    ST_SetSRID(
-      ST_MakePoint(-75.192584, 39.952415),
-      4326
-    )::geography
-  ) DESC
+    ST_DISTANCE(
+        s.geom::geography,
+        ST_SETSRID(
+            ST_MAKEPOINT(-75.192584, 39.952415),
+            4326
+        )::geography
+    ) DESC
 LIMIT 1;
