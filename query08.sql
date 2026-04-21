@@ -17,16 +17,16 @@ FROM (
     SELECT
         start_time,
         start_station::int AS start_station
-    FROM indego.indego.trips_2021_q3
+    FROM indego_trips_2021_q3
 
     UNION ALL
 
     SELECT
         start_time,
         start_station::int AS start_station
-    FROM indego.indego.trips_2022_q3
+    FROM indego_trips_2022_q3
 ) AS t
-INNER JOIN indego.station_statuses AS s
+INNER JOIN station_status AS s
     ON t.start_station = s.id
 WHERE EXTRACT(HOUR FROM t.start_time) BETWEEN 7 AND 9
 GROUP BY
@@ -35,9 +35,3 @@ GROUP BY
 ORDER BY
     num_trips DESC
 LIMIT 5;
-
-
-/*
-    Hint: Use the `EXTRACT` function to get the hour of the day from the
-    timestamp.
-*/
