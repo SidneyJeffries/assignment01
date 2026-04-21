@@ -17,4 +17,4 @@ SELECT
       )
     ) / 1000.0
   ) AS avg_distance_km
-FROM indego.station_status AS s;
+FROM station_status AS s;
