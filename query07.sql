@@ -6,12 +6,12 @@
 */
 
 -- Enter your SQL query here
-SELECT 
+SELECT
     trip_year,
     trip_quarter,
     COUNT(*) AS num_trips
 FROM (
-    SELECT 
+    SELECT
         2021 AS trip_year,
         3 AS trip_quarter,
         start_time,
@@ -20,7 +20,7 @@ FROM (
 
     UNION ALL
 
-    SELECT 
+    SELECT
         2022 AS trip_year,
         3 AS trip_quarter,
         start_time,
@@ -28,7 +28,7 @@ FROM (
     FROM indego_trips_2022_q3
 ) AS trips
 WHERE start_time::date <> end_time::date
-GROUP BY 
+GROUP BY
     trip_year,
     trip_quarter
 ORDER BY
