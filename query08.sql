@@ -17,14 +17,14 @@ FROM (
     SELECT
         start_time,
         start_station::int AS start_station
-    FROM indego_trips_2021_q3
+    FROM indego.trips_2021_q3
 
     UNION ALL
 
     SELECT
         start_time,
         start_station::int AS start_station
-    FROM indego_trips_2022_q3
+    FROM indego.trips_2022_q3
 ) AS t
 INNER JOIN station_status AS s
     ON t.start_station = s.id
