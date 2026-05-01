@@ -7,9 +7,9 @@
 
 -- Enter your SQL query here
 SELECT COUNT(*) AS num_stations
-FROM station_status AS s
+FROM indego.station_statuses AS s
 WHERE ST_DWITHIN(
-    s.geom::geography,
+    s.geog::geography,
     ST_SETSRID(ST_MAKEPOINT(-75.192584, 39.952415), 4326)::geography,
     1000
 )

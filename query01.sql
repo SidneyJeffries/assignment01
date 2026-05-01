@@ -5,4 +5,4 @@
 
 -- Enter your SQL query here
 SELECT count(*)
-FROM indego_trips_2021_q3
+FROM indego.trips_2021_q3
